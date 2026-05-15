@@ -1,24 +1,31 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
+import { type MouseEvent, useState } from 'react'
 import { ShoppingBag, Menu, Phone, MapPin, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useCart } from '@/components/cart-provider'
 import { CartSheet } from '@/components/cart-sheet'
 
 const navigation = [
-  { name: 'iPhone', href: '#catalog', category: 'iphone' },
-  { name: 'Mac', href: '#catalog', category: 'mac' },
-  { name: 'iPad', href: '#catalog', category: 'ipad' },
-  { name: 'Watch', href: '#catalog', category: 'watch' },
-  { name: 'AirPods', href: '#catalog', category: 'airpods' },
-  { name: 'Аксессуары', href: '#catalog', category: 'accessories' },
+  { name: 'iPhone', href: '#catalog-iphone', category: 'iphone' },
+  { name: 'Mac', href: '#catalog-mac', category: 'mac' },
+  { name: 'iPad', href: '#catalog-ipad', category: 'ipad' },
+  { name: 'Watch', href: '#catalog-watch', category: 'watch' },
+  { name: 'AirPods', href: '#catalog-airpods', category: 'airpods' },
+  { name: 'Аксессуары', href: '#catalog-accessories', category: 'accessories' },
 ]
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const { totalItems, setIsOpen } = useCart()
+
+  const handleCatalogNavigation = (
+    _event: MouseEvent<HTMLAnchorElement>,
+    category: string,
+  ) => {
+    window.dispatchEvent(new CustomEvent('catalog-category-change', { detail: { category } }))
+  }
 
   return (
     <>
@@ -65,6 +72,7 @@ export function Header() {
                 <Link
                   key={item.name}
                   href={item.href}
+                  onClick={(event) => handleCatalogNavigation(event, item.category)}
                   className="px-4 py-2 text-sm font-medium text-foreground/70 hover:text-foreground hover:bg-white/50 rounded-full transition-all"
                 >
                   {item.name}
@@ -134,7 +142,10 @@ export function Header() {
                     key={item.name}
                     href={item.href}
                     className="text-lg font-medium text-foreground/80 hover:text-foreground hover:bg-white/50 rounded-xl px-4 py-3 transition-all"
-                    onClick={() => setMobileMenuOpen(false)}
+                    onClick={(event) => {
+                      handleCatalogNavigation(event, item.category)
+                      setMobileMenuOpen(false)
+                    }}
                   >
                     {item.name}
                   </Link>

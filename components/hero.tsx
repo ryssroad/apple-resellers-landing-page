@@ -64,8 +64,8 @@ export function Hero() {
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="h-14 px-8 text-base rounded-full glass-button border-0">
-                <a href="tel:+77001234567">
-                  Позвонить нам
+                <a href="https://wa.me/77001234567" target="_blank" rel="noopener noreferrer">
+                  Написать в WhatsApp
                 </a>
               </Button>
             </div>

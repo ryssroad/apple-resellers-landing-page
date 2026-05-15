@@ -1,12 +1,14 @@
 'use client'
 
-import { useState } from 'react'
+import { type ElementType, useEffect, useState } from 'react'
 import { Grid3X3, Smartphone, Laptop, Tablet, Watch, Headphones, Cable } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { categories, getProductsByCategory } from '@/lib/products'
 import { ProductCard } from '@/components/product-card'
 
-const categoryIcons: Record<string, React.ElementType> = {
+type CategoryId = (typeof categories)[number]['id']
+
+const categoryIcons: Record<string, ElementType> = {
   grid: Grid3X3,
   smartphone: Smartphone,
   laptop: Laptop,
@@ -16,12 +18,75 @@ const categoryIcons: Record<string, React.ElementType> = {
   cable: Cable,
 }
 
+const catalogCategoryIds = new Set(categories.map((category) => category.id))
+
+function isCategoryId(category: string): category is CategoryId {
+  return catalogCategoryIds.has(category as CategoryId)
+}
+
+function getCategoryFromHash() {
+  if (typeof window === 'undefined') {
+    return null
+  }
+
+  const category = window.location.hash.replace('#catalog-', '')
+
+  return isCategoryId(category) ? category : null
+}
+
 export function ProductCatalog() {
   const [activeCategory, setActiveCategory] = useState('all')
   const products = getProductsByCategory(activeCategory)
 
+  useEffect(() => {
+    const syncCategoryFromHash = () => {
+      const category = getCategoryFromHash()
+
+      if (category) {
+        setActiveCategory(category)
+      }
+    }
+
+    const handleCategoryChange = (event: Event) => {
+      const category = (event as CustomEvent<{ category?: string }>).detail?.category
+
+      if (category && isCategoryId(category)) {
+        setActiveCategory(category)
+      }
+    }
+
+    syncCategoryFromHash()
+    window.addEventListener('hashchange', syncCategoryFromHash)
+    window.addEventListener('catalog-category-change', handleCategoryChange)
+
+    return () => {
+      window.removeEventListener('hashchange', syncCategoryFromHash)
+      window.removeEventListener('catalog-category-change', handleCategoryChange)
+    }
+  }, [])
+
+  const handleCategoryClick = (categoryId: CategoryId) => {
+    setActiveCategory(categoryId)
+
+    if (categoryId === 'all') {
+      window.history.replaceState(null, '', '#catalog')
+      return
+    }
+
+    window.history.replaceState(null, '', `#catalog-${categoryId}`)
+  }
+
   return (
     <section id="catalog" className="py-16 lg:py-24 scroll-mt-20 premium-gradient relative">
+      {categories.map((category) => (
+        <span
+          key={category.id}
+          id={category.id === 'all' ? 'catalog-all' : `catalog-${category.id}`}
+          className="absolute top-0 scroll-mt-20"
+          aria-hidden="true"
+        />
+      ))}
+
       {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 -right-48 w-96 h-96 bg-white/50 rounded-full blur-3xl" />
@@ -46,7 +111,7 @@ export function ProductCatalog() {
             return (
               <button
                 key={category.id}
-                onClick={() => setActiveCategory(category.id)}
+                onClick={() => handleCategoryClick(category.id)}
                 className={cn(
                   'flex items-center gap-2 px-5 py-3 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-300',
                   activeCategory === category.id

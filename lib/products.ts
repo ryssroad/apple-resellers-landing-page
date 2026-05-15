@@ -81,7 +81,7 @@ export const products: Product[] = [
     specs: [
       { label: 'Дисплей', value: '6.1" Super Retina XDR' },
       { label: 'Чип', value: 'A19, 6-ядерный CPU' },
-      { name: 'Камера', value: '48 МП основная система' },
+      { label: 'Камера', value: '48 МП основная система' },
       { label: 'Батарея', value: 'До 20 часов видео' },
       { label: 'Защита', value: 'Ceramic Shield' },
     ],
