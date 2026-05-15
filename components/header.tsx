@@ -25,12 +25,10 @@ export function Header() {
     setMobileMenuOpen(false)
     
     // Scroll to catalog section
-    setTimeout(() => {
-      const catalogElement = document.getElementById('catalog')
-      if (catalogElement) {
-        catalogElement.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      }
-    }, 100)
+    const catalogElement = document.getElementById('catalog')
+    if (catalogElement) {
+      catalogElement.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
   }, [setActiveCategory])
 
   return (

@@ -100,15 +100,15 @@ export function ProductCard({ product }: ProductCardProps) {
         </div>
 
         {/* Actions */}
-        <div className="flex gap-3 mt-4 relative z-10">
+        <div className="grid grid-cols-2 gap-2 mt-4 relative z-10">
           <Dialog open={isOpen} onOpenChange={setIsOpen}>
             <DialogTrigger asChild>
               <Button 
                 variant="outline" 
-                className="flex-1 rounded-full glass-button border-0 h-12 min-h-[48px] text-base touch-manipulation active:scale-95 transition-transform"
+                className="rounded-full glass-button border-0 h-11 text-sm touch-manipulation active:scale-95 transition-transform px-3"
               >
-                <Eye className="w-5 h-5 mr-2" />
-                Подробнее
+                <Eye className="w-4 h-4 mr-1.5 flex-shrink-0" />
+                <span className="truncate">Подробнее</span>
               </Button>
             </DialogTrigger>
             <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto glass-menu border-0 rounded-3xl">
@@ -219,12 +219,12 @@ export function ProductCard({ product }: ProductCardProps) {
           </Dialog>
 
           <Button 
-            className="flex-1 rounded-full h-12 min-h-[48px] text-base premium-shadow touch-manipulation active:scale-95 transition-transform"
+            className="rounded-full h-11 text-sm premium-shadow touch-manipulation active:scale-95 transition-transform px-3"
             onClick={handleAddToCart}
             disabled={!product.inStock}
           >
-            <ShoppingBag className="w-5 h-5 mr-2" />
-            В корзину
+            <ShoppingBag className="w-4 h-4 mr-1.5 flex-shrink-0" />
+            <span className="truncate">В корзину</span>
           </Button>
         </div>
       </div>
