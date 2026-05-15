@@ -7,7 +7,7 @@ import {
 
 export const maxDuration = 30
 
-const systemPrompt = `Ты — консультант Apple iStore KZ. Помогай клиентам выбрать устройство Apple.
+const systemPrompt = `Ты — консультант Apple iRoom. Помогай клиентам выбрать устройство Apple.
 
 ПРАВИЛА:
 - Отвечай ОЧЕНЬ кратко, максимум 2-3 предложения

@@ -11,7 +11,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'iStore KZ - Авторизованный реселлер Apple в Казахстане',
+  title: 'iRoom - Авторизованный реселлер Apple в Казахстане',
   description: 'Официальная техника Apple в Казахстане. iPhone 17, MacBook Pro M5, iPad, Apple Watch. Гарантия, доставка по всему Казахстану. Оплата картой Visa/Mastercard.',
   keywords: 'Apple, iPhone, MacBook, iPad, Apple Watch, Казахстан, купить, реселлер',
   generator: 'v0.app',
