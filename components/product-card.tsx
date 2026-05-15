@@ -68,19 +68,19 @@ export function ProductCard({ product }: ProductCardProps) {
           {product.description}
         </p>
 
-        {/* Colors preview */}
-        <div className="flex items-center gap-1.5 mt-4">
-          {product.colors.slice(0, 5).map((color) => (
+        {/* Colors preview - just display, not interactive */}
+        <div className="flex items-center gap-2 mt-4">
+          {product.colors.slice(0, 4).map((color) => (
             <div
               key={color.name}
-              className="w-5 h-5 rounded-full border-2 border-white/60 shadow-sm"
+              className="w-6 h-6 rounded-full border-2 border-white/80 shadow-sm"
               style={{ backgroundColor: color.hex }}
               title={color.name}
             />
           ))}
-          {product.colors.length > 5 && (
+          {product.colors.length > 4 && (
             <span className="text-xs text-foreground/50 ml-1">
-              +{product.colors.length - 5}
+              +{product.colors.length - 4}
             </span>
           )}
         </div>
@@ -100,11 +100,14 @@ export function ProductCard({ product }: ProductCardProps) {
         </div>
 
         {/* Actions */}
-        <div className="flex gap-2 mt-4">
+        <div className="flex gap-3 mt-4 relative z-10">
           <Dialog open={isOpen} onOpenChange={setIsOpen}>
             <DialogTrigger asChild>
-              <Button variant="outline" size="sm" className="flex-1 rounded-full glass-button border-0 h-11">
-                <Eye className="w-4 h-4 mr-1.5" />
+              <Button 
+                variant="outline" 
+                className="flex-1 rounded-full glass-button border-0 h-12 min-h-[48px] text-base touch-manipulation active:scale-95 transition-transform"
+              >
+                <Eye className="w-5 h-5 mr-2" />
                 Подробнее
               </Button>
             </DialogTrigger>
@@ -131,12 +134,12 @@ export function ProductCard({ product }: ProductCardProps) {
                   {/* Color selection */}
                   <div>
                     <label className="text-sm font-medium text-foreground/70">Цвет: <span className="text-foreground">{selectedColor}</span></label>
-                    <div className="flex flex-wrap gap-2 mt-3">
+                    <div className="flex flex-wrap gap-3 mt-3">
                       {product.colors.map((color) => (
                         <button
                           key={color.name}
                           onClick={() => setSelectedColor(color.name)}
-                          className={`w-9 h-9 rounded-full flex items-center justify-center transition-all ${
+                          className={`w-11 h-11 min-w-[44px] min-h-[44px] rounded-full flex items-center justify-center transition-all touch-manipulation active:scale-90 ${
                             selectedColor === color.name
                               ? 'ring-2 ring-foreground ring-offset-2 scale-110'
                               : 'hover:scale-105'
@@ -145,7 +148,7 @@ export function ProductCard({ product }: ProductCardProps) {
                           title={color.name}
                         >
                           {selectedColor === color.name && (
-                            <Check className={`w-4 h-4 ${
+                            <Check className={`w-5 h-5 ${
                               color.hex === '#F5F5F7' || color.hex === '#F0E4D3' || color.hex === '#E3E4E5' || color.hex === '#F5F5F0'
                                 ? 'text-foreground'
                                 : 'text-white'
@@ -160,12 +163,12 @@ export function ProductCard({ product }: ProductCardProps) {
                   {product.storage && (
                     <div>
                       <label className="text-sm font-medium text-foreground/70">Память</label>
-                      <div className="flex flex-wrap gap-2 mt-3">
+                      <div className="flex flex-wrap gap-3 mt-3">
                         {product.storage.map((storage) => (
                           <button
                             key={storage}
                             onClick={() => setSelectedStorage(storage)}
-                            className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all ${
+                            className={`px-5 py-3 min-h-[44px] rounded-full text-sm font-medium transition-all touch-manipulation active:scale-95 ${
                               selectedStorage === storage
                                 ? 'bg-foreground text-background shadow-lg'
                                 : 'glass-button hover:bg-white/90'
@@ -216,12 +219,11 @@ export function ProductCard({ product }: ProductCardProps) {
           </Dialog>
 
           <Button 
-            size="sm" 
-            className="flex-1 rounded-full h-11 premium-shadow"
+            className="flex-1 rounded-full h-12 min-h-[48px] text-base premium-shadow touch-manipulation active:scale-95 transition-transform"
             onClick={handleAddToCart}
             disabled={!product.inStock}
           >
-            <ShoppingBag className="w-4 h-4 mr-1.5" />
+            <ShoppingBag className="w-5 h-5 mr-2" />
             В корзину
           </Button>
         </div>
