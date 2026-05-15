@@ -22,7 +22,7 @@ export const products: Product[] = [
     category: 'iphone',
     description: 'Самый мощный iPhone с чипом A19 Pro, титановым корпусом и передовой камерой 48 МП.',
     price: 899990,
-    image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-pro-finish-select-202309-6-7inch_GEO_US?wid=5120&hei=2880&fmt=webp&qlt=70&.v=1693009284541',
+    image: '/images/iphone-17-pro-max.jpg',
     colors: [
       { name: 'Натуральный титан', hex: '#8F8A81' },
       { name: 'Синий титан', hex: '#394C5E' },
@@ -46,7 +46,7 @@ export const products: Product[] = [
     category: 'iphone',
     description: 'Pro-возможности в компактном формате. Титановый дизайн и камера ProRAW.',
     price: 749990,
-    image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-pro-finish-select-202309-6-1inch_GEO_US?wid=5120&hei=2880&fmt=webp&qlt=70&.v=1693009284539',
+    image: '/images/iphone-17-pro.jpg',
     colors: [
       { name: 'Натуральный титан', hex: '#8F8A81' },
       { name: 'Синий титан', hex: '#394C5E' },
@@ -70,7 +70,7 @@ export const products: Product[] = [
     category: 'iphone',
     description: 'Новое поколение iPhone с Dynamic Island и улучшенной камерой.',
     price: 549990,
-    image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-finish-select-202309-6-1inch_GEO_US?wid=5120&hei=2880&fmt=webp&qlt=70&.v=1693009284559',
+    image: '/images/iphone-17.jpg',
     colors: [
       { name: 'Черный', hex: '#1D1D1F' },
       { name: 'Синий', hex: '#A1C3D3' },
@@ -96,7 +96,7 @@ export const products: Product[] = [
     category: 'mac',
     description: 'Профессиональная мощность с чипом M5 Pro. Идеален для разработки и креатива.',
     price: 1475800,
-    image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp16-spacegray-select-202310?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1697311054290',
+    image: '/images/macbook-pro-16.jpg',
     colors: [
       { name: 'Серый космос', hex: '#1D1D1F' },
       { name: 'Серебристый', hex: '#E3E4E5' },
@@ -119,7 +119,7 @@ export const products: Product[] = [
     category: 'mac',
     description: 'Компактный профессиональный ноутбук с невероятной производительностью.',
     price: 1199990,
-    image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp14-spacegray-select-202310?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1697230830200',
+    image: '/images/macbook-pro-14.jpg',
     colors: [
       { name: 'Серый космос', hex: '#1D1D1F' },
       { name: 'Серебристый', hex: '#E3E4E5' },
@@ -141,7 +141,7 @@ export const products: Product[] = [
     category: 'mac',
     description: 'Большой экран, невероятная портативность. Самый тонкий 15" ноутбук в мире.',
     price: 784900,
-    image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mba15-midnight-select-202306?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1684518479231',
+    image: '/images/macbook-air-15.jpg',
     colors: [
       { name: 'Полночь', hex: '#1D1D1F' },
       { name: 'Звездный свет', hex: '#F0E4D3' },
@@ -165,7 +165,7 @@ export const products: Product[] = [
     category: 'mac',
     description: 'Самый популярный Mac. Легкий, быстрый и с бесшумным охлаждением.',
     price: 524990,
-    image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mba13-midnight-select-202402?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1708367688034',
+    image: '/images/macbook-air-13.jpg',
     colors: [
       { name: 'Полночь', hex: '#1D1D1F' },
       { name: 'Звездный свет', hex: '#F0E4D3' },
@@ -189,7 +189,7 @@ export const products: Product[] = [
     category: 'ipad',
     description: 'Ультратонкий. Невероятно мощный. С новейшим чипом M5 и OLED дисплеем.',
     price: 795990,
-    image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/ipad-pro-finish-select-202405-13inch-space-black-wifi?wid=5120&hei=2880&fmt=webp&qlt=70&.v=1713920820750',
+    image: '/images/ipad-pro.jpg',
     colors: [
       { name: 'Серый космос', hex: '#1D1D1F' },
       { name: 'Серебристый', hex: '#E3E4E5' },
@@ -211,7 +211,7 @@ export const products: Product[] = [
     category: 'ipad',
     description: 'Мощь M4 в универсальном формате. Идеален для работы и творчества.',
     price: 449990,
-    image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/ipad-air-finish-select-gallery-202405-11inch-blue-wifi?wid=5120&hei=2880&fmt=webp&qlt=70&.v=1713308063407',
+    image: '/images/ipad-air.jpg',
     colors: [
       { name: 'Голубой', hex: '#B5C9D1' },
       { name: 'Фиолетовый', hex: '#C9C2D1' },
@@ -234,7 +234,7 @@ export const products: Product[] = [
     category: 'ipad',
     description: 'Яркий, универсальный и доступный. Отличный выбор для повседневных задач.',
     price: 269990,
-    image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/ipad-10th-gen-finish-select-202212-blue-wifi?wid=5120&hei=2880&fmt=webp&qlt=70&.v=1670858021004',
+    image: '/images/ipad-10.jpg',
     colors: [
       { name: 'Синий', hex: '#4B6D9B' },
       { name: 'Розовый', hex: '#E8D2CF' },
@@ -258,7 +258,7 @@ export const products: Product[] = [
     category: 'watch',
     description: 'Самые прочные и функциональные Apple Watch. Для экстремальных условий.',
     price: 549990,
-    image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/watch-ultra-2-702702-702719-702778-702701-702814-702718-702814_VW_PF+watch-case-49-titanium-ultra2_VW_PF+watch-face-49-activity-digital-ultra2_VW_PF?wid=1000&hei=1000&fmt=jpeg&qlt=90&.v=1693508833335',
+    image: '/images/apple-watch-ultra.jpg',
     colors: [
       { name: 'Титан', hex: '#8F8A81' },
     ],
@@ -278,7 +278,7 @@ export const products: Product[] = [
     category: 'watch',
     description: 'Самый большой и продвинутый дисплей. Здоровье всегда под контролем.',
     price: 349990,
-    image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/watch-s9-702702-702719-702778-702701-702814-702718-702814_VW_PF+watch-case-46-aluminum-midnight-nc-s9_VW_PF+watch-face-46-aluminum-midnight-s9_VW_PF?wid=1000&hei=1000&fmt=jpeg&qlt=90&.v=1693346910291',
+    image: '/images/apple-watch-series-10.jpg',
     colors: [
       { name: 'Полночь', hex: '#1D1D1F' },
       { name: 'Звездный свет', hex: '#F0E4D3' },
@@ -303,7 +303,7 @@ export const products: Product[] = [
     category: 'airpods',
     description: 'Активное шумоподавление нового поколения. Персонализированный звук.',
     price: 189990,
-    image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/airpods-pro-2-hero-select-202409?wid=470&hei=556&fmt=png-alpha&.v=1724041669458',
+    image: '/images/airpods-pro.jpg',
     colors: [
       { name: 'Белый', hex: '#F5F5F7' },
     ],
@@ -324,7 +324,7 @@ export const products: Product[] = [
     category: 'airpods',
     description: 'Комфорт открытого дизайна с пространственным аудио.',
     price: 129990,
-    image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/airpods-4-anc-select-202409?wid=470&hei=556&fmt=png-alpha&.v=1725502639798',
+    image: '/images/airpods-4.jpg',
     colors: [
       { name: 'Белый', hex: '#F5F5F7' },
     ],
@@ -343,7 +343,7 @@ export const products: Product[] = [
     category: 'airpods',
     description: 'Премиальные накладные наушники с Hi-Fi звуком и USB-C.',
     price: 399990,
-    image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/airpods-max-select-202409-midnight?wid=470&hei=556&fmt=png-alpha&.v=1724927451276',
+    image: '/images/airpods-max.jpg',
     colors: [
       { name: 'Полночь', hex: '#1D1D1F' },
       { name: 'Звездный свет', hex: '#F0E4D3' },
@@ -356,7 +356,7 @@ export const products: Product[] = [
       { label: 'Шумоподавление', value: 'Активное' },
       { label: 'Аудио', value: 'Hi-Fi с поддержкой Lossless' },
       { label: 'Батарея', value: 'До 20 часов' },
-      { label: 'Материал', value: 'Алюминий, нержавеющая сталь' },
+      { label: 'Материал', value: '��люминий, нержавеющая сталь' },
     ],
     inStock: true,
     isNew: true,
@@ -368,7 +368,7 @@ export const products: Product[] = [
     category: 'accessories',
     description: 'Новые жесты сжатия, тактильный отклик и функция Find My.',
     price: 89990,
-    image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MX2D3?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1713841707336',
+    image: '/images/apple-pencil-pro.jpg',
     colors: [
       { name: 'Белый', hex: '#F5F5F7' },
     ],
@@ -388,7 +388,7 @@ export const products: Product[] = [
     category: 'accessories',
     description: 'Тонкая и легкая клавиатура с трекпадом и функциональным рядом клавиш.',
     price: 249990,
-    image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MWR53?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1713928172393',
+    image: '/images/magic-keyboard.jpg',
     colors: [
       { name: 'Черный', hex: '#1D1D1F' },
       { name: 'Белый', hex: '#F5F5F7' },
@@ -409,7 +409,7 @@ export const products: Product[] = [
     category: 'accessories',
     description: 'Быстрая беспроводная зарядка с идеальным выравниванием.',
     price: 34990,
-    image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MHXH3?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1603835871000',
+    image: '/images/magsafe-charger.jpg',
     colors: [
       { name: 'Белый', hex: '#F5F5F7' },
     ],

@@ -70,7 +70,7 @@ export function Hero() {
             <div className="relative aspect-square max-w-md mx-auto lg:max-w-none">
               <div className="absolute inset-0 bg-gradient-to-tr from-muted via-transparent to-transparent rounded-3xl" />
               <Image
-                src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-pro-finish-select-202309-6-7inch_GEO_US?wid=5120&hei=2880&fmt=webp&qlt=70&.v=1693009284541"
+                src="/images/iphone-17-pro-max.jpg"
                 alt="iPhone 17 Pro Max"
                 fill
                 className="object-contain p-8"
