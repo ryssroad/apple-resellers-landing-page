@@ -34,7 +34,7 @@ export function ProductCard({ product }: ProductCardProps) {
   }
 
   return (
-    <div className="group relative flex flex-col glass-card rounded-3xl overflow-hidden transition-all duration-300">
+    <div className="group relative flex flex-col glass-card rounded-3xl overflow-hidden transition-all duration-300" style={{ isolation: 'isolate' }}>
       {/* Badges */}
       <div className="absolute top-4 left-4 z-10 flex flex-col gap-1.5">
         {product.isNew && (
@@ -100,12 +100,13 @@ export function ProductCard({ product }: ProductCardProps) {
         </div>
 
         {/* Actions */}
-        <div className="grid grid-cols-2 gap-2 mt-4 relative z-10">
+        <div className="grid grid-cols-2 gap-2 mt-4 relative z-20" style={{ pointerEvents: 'auto' }}>
           <Dialog open={isOpen} onOpenChange={setIsOpen}>
             <DialogTrigger asChild>
               <Button 
+                type="button"
                 variant="outline" 
-                className="rounded-full glass-button border-0 h-11 text-sm touch-manipulation active:scale-95 transition-transform px-3"
+                className="rounded-full glass-button border-0 h-11 text-sm touch-manipulation active:scale-95 transition-transform px-3 cursor-pointer"
               >
                 <Eye className="w-4 h-4 mr-1.5 flex-shrink-0" />
                 <span className="truncate">Подробнее</span>
@@ -219,7 +220,8 @@ export function ProductCard({ product }: ProductCardProps) {
           </Dialog>
 
           <Button 
-            className="rounded-full h-11 text-sm premium-shadow touch-manipulation active:scale-95 transition-transform px-3"
+            type="button"
+            className="rounded-full h-11 text-sm premium-shadow touch-manipulation active:scale-95 transition-transform px-3 cursor-pointer"
             onClick={handleAddToCart}
             disabled={!product.inStock}
           >

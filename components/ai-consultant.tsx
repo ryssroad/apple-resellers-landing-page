@@ -47,8 +47,9 @@ export function AIConsultant() {
       </button>
 
       {/* Chat window */}
+      {isOpen && (
       <div
-        className={`fixed bottom-6 right-6 z-50 w-[calc(100vw-48px)] max-w-[380px] transition-all duration-300 origin-bottom-right ${isOpen ? 'scale-100 opacity-100' : 'scale-0 opacity-0 pointer-events-none'}`}
+        className="fixed bottom-6 right-6 z-50 w-[calc(100vw-48px)] max-w-[380px] transition-all duration-300 origin-bottom-right"
       >
         <div className="glass-menu rounded-3xl overflow-hidden flex flex-col h-[500px] max-h-[70vh]">
           {/* Header */}
@@ -156,6 +157,7 @@ export function AIConsultant() {
           </form>
         </div>
       </div>
+      )}
     </>
   )
 }
