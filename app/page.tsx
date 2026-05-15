@@ -2,6 +2,7 @@ import { Header } from '@/components/header'
 import { Hero } from '@/components/hero'
 import { ProductCatalog } from '@/components/product-catalog'
 import { Footer } from '@/components/footer'
+import { AIConsultant } from '@/components/ai-consultant'
 
 export default function HomePage() {
   return (
@@ -12,6 +13,7 @@ export default function HomePage() {
         <ProductCatalog />
       </main>
       <Footer />
+      <AIConsultant />
     </div>
   )
 }
