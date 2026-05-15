@@ -1,10 +1,10 @@
 'use client'
 
-import { useState } from 'react'
 import { Grid3X3, Smartphone, Laptop, Tablet, Watch, Headphones, Cable } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { categories, getProductsByCategory } from '@/lib/products'
 import { ProductCard } from '@/components/product-card'
+import { useCart } from '@/components/cart-provider'
 
 const categoryIcons: Record<string, React.ElementType> = {
   grid: Grid3X3,
@@ -17,7 +17,7 @@ const categoryIcons: Record<string, React.ElementType> = {
 }
 
 export function ProductCatalog() {
-  const [activeCategory, setActiveCategory] = useState('all')
+  const { activeCategory, setActiveCategory } = useCart()
   const products = getProductsByCategory(activeCategory)
 
   return (

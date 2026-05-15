@@ -71,23 +71,24 @@ export function CartSheet() {
                       key={`${item.product.id}-${item.selectedColor}-${item.selectedStorage}`} 
                       className="flex gap-4 p-4 rounded-2xl glass-card"
                     >
-                      <div className="relative w-20 h-20 bg-white/50 rounded-xl overflow-hidden flex-shrink-0">
+                      <div className="relative w-24 h-24 bg-white rounded-xl overflow-hidden flex-shrink-0 shadow-sm">
                         <Image
                           src={item.product.image}
                           alt={item.product.name}
                           fill
-                          className="object-contain p-2"
+                          sizes="96px"
+                          className="object-cover"
                         />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <h4 className="font-medium text-sm leading-tight truncate text-foreground/90">
+                        <h4 className="font-semibold text-base leading-tight text-foreground">
                           {item.product.name}
                         </h4>
-                        <div className="text-xs text-foreground/50 mt-1 space-y-0.5">
-                          {item.selectedColor && <p>Цвет: {item.selectedColor}</p>}
-                          {item.selectedStorage && <p>Память: {item.selectedStorage}</p>}
+                        <div className="text-sm text-foreground/60 mt-1.5 space-y-0.5">
+                          {item.selectedStorage && <p>{item.selectedStorage}</p>}
+                          {item.selectedColor && <p>{item.selectedColor}</p>}
                         </div>
-                        <p className="font-semibold text-sm mt-2 text-foreground/80">
+                        <p className="font-bold text-base mt-2 text-foreground">
                           {formatPrice(item.product.price)}
                         </p>
                       </div>
@@ -129,18 +130,18 @@ export function CartSheet() {
 
               {/* Footer */}
               <div className="border-t border-black/5 p-6 space-y-4 bg-white/30">
-                <div className="space-y-2">
-                  <div className="flex justify-between text-sm">
-                    <span className="text-foreground/50">Товары ({items.reduce((s, i) => s + i.quantity, 0)})</span>
-                    <span className="text-foreground/80">{formatPrice(totalPrice)}</span>
+                <div className="space-y-3">
+                  <div className="flex justify-between">
+                    <span className="text-foreground/60">Товары ({items.reduce((s, i) => s + i.quantity, 0)})</span>
+                    <span className="font-medium">{formatPrice(totalPrice)}</span>
                   </div>
-                  <div className="flex justify-between text-sm">
-                    <span className="text-foreground/50">Доставка</span>
-                    <span className="text-emerald-600 font-medium">Бесплатно</span>
+                  <div className="flex justify-between">
+                    <span className="text-foreground/60">Доставка</span>
+                    <span className="text-emerald-600 font-semibold">Бесплатно</span>
                   </div>
-                  <div className="h-px bg-black/5 my-2" />
-                  <div className="flex justify-between font-semibold text-lg">
-                    <span>Итого</span>
+                  <div className="h-px bg-black/10 my-3" />
+                  <div className="flex justify-between font-bold text-xl">
+                    <span>Итого:</span>
                     <span>{formatPrice(totalPrice)}</span>
                   </div>
                 </div>

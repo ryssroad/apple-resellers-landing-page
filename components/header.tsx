@@ -1,24 +1,37 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import { ShoppingBag, Menu, Phone, MapPin, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useCart } from '@/components/cart-provider'
 import { CartSheet } from '@/components/cart-sheet'
 
 const navigation = [
-  { name: 'iPhone', href: '#catalog', category: 'iphone' },
-  { name: 'Mac', href: '#catalog', category: 'mac' },
-  { name: 'iPad', href: '#catalog', category: 'ipad' },
-  { name: 'Watch', href: '#catalog', category: 'watch' },
-  { name: 'AirPods', href: '#catalog', category: 'airpods' },
-  { name: 'Аксессуары', href: '#catalog', category: 'accessories' },
+  { name: 'iPhone', category: 'iphone' },
+  { name: 'Mac', category: 'mac' },
+  { name: 'iPad', category: 'ipad' },
+  { name: 'Watch', category: 'watch' },
+  { name: 'AirPods', category: 'airpods' },
+  { name: 'Аксессуары', category: 'accessories' },
 ]
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const { totalItems, setIsOpen } = useCart()
+  const { totalItems, setIsOpen, setActiveCategory } = useCart()
+
+  const handleNavClick = useCallback((category: string) => {
+    setActiveCategory(category)
+    setMobileMenuOpen(false)
+    
+    // Scroll to catalog section
+    setTimeout(() => {
+      const catalogElement = document.getElementById('catalog')
+      if (catalogElement) {
+        catalogElement.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+    }, 100)
+  }, [setActiveCategory])
 
   return (
     <>
@@ -62,13 +75,13 @@ export function Header() {
             {/* Desktop navigation */}
             <div className="hidden lg:flex items-center gap-1">
               {navigation.map((item) => (
-                <Link
+                <button
                   key={item.name}
-                  href={item.href}
+                  onClick={() => handleNavClick(item.category)}
                   className="px-4 py-2 text-sm font-medium text-foreground/70 hover:text-foreground hover:bg-white/50 rounded-full transition-all"
                 >
                   {item.name}
-                </Link>
+                </button>
               ))}
             </div>
 
@@ -130,14 +143,13 @@ export function Header() {
               {/* Navigation */}
               <nav className="flex flex-col gap-1">
                 {navigation.map((item) => (
-                  <Link
+                  <button
                     key={item.name}
-                    href={item.href}
-                    className="text-lg font-medium text-foreground/80 hover:text-foreground hover:bg-white/50 rounded-xl px-4 py-3 transition-all"
-                    onClick={() => setMobileMenuOpen(false)}
+                    onClick={() => handleNavClick(item.category)}
+                    className="text-lg font-medium text-foreground/80 hover:text-foreground hover:bg-white/50 rounded-xl px-4 py-3 transition-all text-left"
                   >
                     {item.name}
-                  </Link>
+                  </button>
                 ))}
               </nav>
               

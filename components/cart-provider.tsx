@@ -20,6 +20,8 @@ interface CartContextType {
   totalPrice: number
   isOpen: boolean
   setIsOpen: (open: boolean) => void
+  activeCategory: string
+  setActiveCategory: (category: string) => void
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined)
@@ -27,6 +29,7 @@ const CartContext = createContext<CartContextType | undefined>(undefined)
 export function CartProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([])
   const [isOpen, setIsOpen] = useState(false)
+  const [activeCategory, setActiveCategory] = useState('all')
 
   const addItem = useCallback((product: Product, color?: string, storage?: string) => {
     setItems(prev => {
@@ -82,6 +85,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
       totalPrice,
       isOpen,
       setIsOpen,
+      activeCategory,
+      setActiveCategory,
     }}>
       {children}
     </CartContext.Provider>
