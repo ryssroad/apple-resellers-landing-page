@@ -46,8 +46,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="ru" className="bg-background">
-      <body className={`${inter.variable} font-sans antialiased`}>
+    <html lang="ru" className="bg-[#f5f7fa]">
+      <body className={`${inter.variable} font-sans antialiased bg-gradient-to-b from-[#f5f7fa] to-[#e4e8ec] min-h-screen`}>
         <CartProvider>
           {children}
         </CartProvider>
