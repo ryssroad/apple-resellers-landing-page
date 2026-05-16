@@ -77,7 +77,7 @@ export function Hero() {
               {/* Glass background for image */}
               <div className="absolute inset-8 rounded-[3rem] glass-card" />
               <Image
-                src="/images/iphone-17-pro-max.jpg"
+                src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-16-pro-max-naturaltitanium-select?wid=1024&hei=1024&fmt=png-alpha"
                 alt="iPhone 17 Pro Max"
                 fill
                 className="object-contain p-8 drop-shadow-2xl"

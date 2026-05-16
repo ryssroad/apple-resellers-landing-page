@@ -1,7 +1,7 @@
 'use client'
 
-import { createContext, useContext, useState, useCallback, type ReactNode } from 'react'
-import type { Product } from '@/lib/products'
+import { createContext, useContext, useState, useCallback, useEffect, type ReactNode } from 'react'
+import { products, type Product } from '@/lib/products'
 
 export interface CartItem {
   product: Product
@@ -23,10 +23,60 @@ interface CartContextType {
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined)
+const CART_STORAGE_KEY = 'iroom-cart'
+
+function loadCartItems(): CartItem[] {
+  if (typeof window === 'undefined') {
+    return []
+  }
+
+  try {
+    const storedItems = window.localStorage.getItem(CART_STORAGE_KEY)
+
+    const parsedItems = storedItems ? JSON.parse(storedItems) : []
+
+    if (!Array.isArray(parsedItems)) {
+      return []
+    }
+
+    return parsedItems.reduce<CartItem[]>((items, item) => {
+      const product = products.find((catalogProduct) => catalogProduct.id === item?.product?.id)
+
+      if (!product || typeof item?.quantity !== 'number') {
+        return items
+      }
+
+      items.push({
+        product,
+        quantity: item.quantity,
+        selectedColor: item.selectedColor,
+        selectedStorage: item.selectedStorage,
+      })
+
+      return items
+    }, [])
+  } catch {
+    return []
+  }
+}
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([])
+  const [hasLoadedCart, setHasLoadedCart] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
+
+  useEffect(() => {
+    setItems(loadCartItems())
+    setHasLoadedCart(true)
+  }, [])
+
+  useEffect(() => {
+    if (!hasLoadedCart) {
+      return
+    }
+
+    window.localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(items))
+  }, [hasLoadedCart, items])
 
   const addItem = useCallback((product: Product, color?: string, storage?: string) => {
     setItems(prev => {
